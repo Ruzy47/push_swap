@@ -26,7 +26,7 @@ void	sa(t_stack *a)
 		a->next->index = i;
 		a->next->num = n;
 	}
-	write (1, "sa\n", 3);
+	write (2, "sa\n", 3);
 }
 
 void	sb(t_stack *b)
@@ -41,9 +41,9 @@ void	sb(t_stack *b)
 		b->index = b->next->index;
 		b->num = b->next->num;
 		b->next->index = i;
-		b->next->num = i;
+		b->next->num = n;
 	}
-	write (1, "sb\n", 3);
+	write (2, "sb\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
@@ -61,7 +61,7 @@ void	pb(t_stack **a, t_stack **b)
 			(*b)->prev = n;
 		*b = n;
 	}
-	write (1, "pb\n", 3);
+	write (2, "pb\n", 3);
 }
 
 void	pa(t_stack **a, t_stack **b)
@@ -79,12 +79,12 @@ void	pa(t_stack **a, t_stack **b)
 			(*a)->prev = n;
 		*a = n;
 	}
-	write (1, "pa\n", 3);
+	write (2, "pa\n", 3);
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
 	ra(&a);
 	rb(&b);
-	write (1, "rr\n", 3);
+	write (2, "rr\n", 3);
 }

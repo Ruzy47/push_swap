@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	litfly_cont(t_stack **a, t_stack **b, int i)
 {
@@ -72,7 +72,9 @@ void	litfly_cont_a(t_stack **a)
 
 void	litfly(t_stack **a, t_stack **b, int i)
 {
-	if (i == 3)
+	if (i == 2)
+		sa(*a);
+	else if (i == 3)
 		litfly_cont_a(a);
 	else
 	{

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 t_stack	*last(t_stack *lst)
 {
@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 	//  	p = p->next;
 	//  }
 	listfree(a);
-	listfree(b);
+//	listfree(b);
 	free(num);
 //	system ("leaks push_swap");
 }

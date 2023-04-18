@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	sa(t_stack *a)
 {
@@ -41,7 +41,7 @@ void	sb(t_stack *b)
 		b->index = b->next->index;
 		b->num = b->next->num;
 		b->next->index = i;
-		b->next->num = i;
+		b->next->num = n;
 	}
 	write (1, "sb\n", 3);
 }

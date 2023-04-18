@@ -16,7 +16,7 @@ void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
-	write (1, "ss\n", 3);
+	write (2, "ss\n", 3);
 }
 
 void	fly_cont(t_stack **b, int i)

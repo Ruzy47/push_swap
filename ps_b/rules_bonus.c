@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   rules_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,7 +26,6 @@ void	sa(t_stack *a)
 		a->next->index = i;
 		a->next->num = n;
 	}
-	write (1, "sa\n", 3);
 }
 
 void	sb(t_stack *b)
@@ -43,7 +42,6 @@ void	sb(t_stack *b)
 		b->next->index = i;
 		b->next->num = n;
 	}
-	write (1, "sb\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
@@ -61,7 +59,6 @@ void	pb(t_stack **a, t_stack **b)
 			(*b)->prev = n;
 		*b = n;
 	}
-	write (1, "pb\n", 3);
 }
 
 void	pa(t_stack **a, t_stack **b)
@@ -79,12 +76,10 @@ void	pa(t_stack **a, t_stack **b)
 			(*a)->prev = n;
 		*a = n;
 	}
-	write (1, "pa\n", 3);
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
 	ra(&a);
 	rb(&b);
-	write (1, "rr\n", 3);
 }

@@ -18,7 +18,7 @@ int	ft_strcmp(char *s1, char *s2)
 
 	i = 0;
 	if (!s1 || !s2)
-		return (0);
+		return (-1);
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
 	return (s1[i] - s2[i]);
@@ -45,15 +45,15 @@ int	dif(char **av)
 
 	i = 0;
 	n = 1;
-	while (av[i] && av[i + 1] != NULL)
+	while (av[i])
 	{	
-		i++;
-		while (av[n] && av[n + 1] != NULL)
+		while (av[n])
 		{
-			n++;
 			if (ft_strcmp(av[i], av[n]) == 0)
 				return (1);
+			n++;
 		}
+		i++;
 		n = i + 1;
 	}
 	return (0);
@@ -71,8 +71,6 @@ int	errors(char **av)
 	while (av[++i])
 	{
 		n = -1;
-		if (ft_strlen(av[i]) > 10)
-			return (1);
 		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
 			return (1);
 		while (av[i][++n])

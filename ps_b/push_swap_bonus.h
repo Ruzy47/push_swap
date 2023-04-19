@@ -41,13 +41,14 @@ char	*ft_strdup(const char *str);
 #  define BUFFER_SIZE 42
 # endif
 
+void	checker(t_stack **a, t_stack **b);
+char	**number(char **v);
+int		ft_strcmp(char *s1, char *s2);
 int		sort_av(char **av);
 int		errors(char **av);
 char	**pars(char **v, int i);
 int		lenn(char **av, int i);
 char	**plit(char **av, int i);
-void	fly(t_stack **a, t_stack **b, int i);
-void	litfly(t_stack **a, t_stack **b, int i);
 void	listfree(t_stack *x);
 void	sa(t_stack *a);
 void	sb(t_stack *b);

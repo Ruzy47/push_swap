@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules2.c                                           :+:      :+:    :+:   */
+/*   rules2_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -30,7 +30,6 @@ void	ra(t_stack **a)
 		*a = (*a)->next;
 		*a = t;
 	}
-	write (1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
@@ -51,7 +50,6 @@ void	rb(t_stack **b)
 		*b = (*b)->next;
 		*b = t;
 	}
-	write (1, "rb\n", 3);
 }
 
 void	rra(t_stack **a)
@@ -73,7 +71,6 @@ void	rra(t_stack **a)
 		(*a)->prev = t;
 		(*a) = t;
 	}
-	write (1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
@@ -95,12 +92,10 @@ void	rrb(t_stack **b)
 		(*b)->prev = t;
 		(*b) = t;
 	}
-	write (1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
 	rra(&a);
 	rrb(&b);
-	write (1, "rrr\n", 4);
 }

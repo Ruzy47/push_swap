@@ -16,12 +16,12 @@ void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
-	write (2, "ss\n", 3);
+	write (1, "ss\n", 3);
 }
 
 void	fly_cont(t_stack **b, int i)
 {
-	int	x;
+	int		x;
 	t_stack	*bb;
 
 	bb = *b;
@@ -30,13 +30,13 @@ void	fly_cont(t_stack **b, int i)
 	{
 		x++;
 		if (bb->index == i)
-			break;
+			break ;
 		bb = bb->next;
 	}
 	if (x < i / 2)
-			rb(b);
+		rb(b);
 	else
-			rrb(b);
+		rrb(b);
 }
 
 void	fly_back(t_stack **a, t_stack **b, int i)
@@ -65,14 +65,14 @@ int	num(int i)
 	while (1)
 	{
 		if (n * n <= i && ((n + 1) * (n + 1)) >= i)
-			break;
+			break ;
 		else
 			n++;
 	}
 	while (1)
 	{
 		if (x <= i && x * 2 >= i)
-			break;
+			break ;
 		x = x * 2;
 		l++;
 	}
@@ -86,7 +86,7 @@ void	fly(t_stack **a, t_stack **b, int i)
 
 	n = num(i);
 	count = 0;
-	while(*a)
+	while (*a)
 	{
 		if ((*a)->index <= count)
 		{

@@ -14,70 +14,49 @@ NAME = push_swap
 
 BONUS = checker
 
-BUILD =	./build
+BUILD =	build
 
 CC = cc
 
-SRC = 	ps/main.c		\
-		ps/errors.c		\
-		ps/rules.c		\
-		ps/rules2.c		\
-		ps/parsing.c	\
-		ps/butterfly.c	\
-		ps/litfly.c		\
+SRC = $(wildcard ps/*.c)
 
-SRCB =	ps_b/main.c							\
-		ps_b/errors.c						\
-		ps_b/rules.c						\
-		ps_b/rules2.c						\
-		ps_b/parsing.c						\
-		ps_b/butterfly.c					\
-		ps_b/litfly.c						\
-		ps_b/get_next_line_bonus.c			\
-		ps_b/get_next_line_utils_bonus.c	\
+SRCB = $(wildcard ps_b/*.c)
 
 LIBFT = libft
 
-OBJ = $(SRC:.c=.o)
-OBJB = $(SRCB:.c=.o)
+OBJ = $(patsubst %.c, %.o, $(SRC))
+OBJB = $(patsubst %.c, %.o, $(SRCB))
+
+A = $(patsubst %.o, $(BUILD)/%.o, $(OBJ))
+B = $(patsubst %.o, $(BUILD)/%.o, $(OBJB))
 
 CFLAGS = -Wall -Wextra -Werror
 
-$(BUILD)/%.o: $(SRC)/%.c Makefile
+$(BUILD)/%.o: %.c Makefile
+	@mkdir -p $(BUILD)/ps
+	@mkdir -p $(BUILD)/ps_b
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(BUILD)/%.o: $(SRCB)/%.c Makefile
-	$(CC) -c $(CFLAGS) $< -o $@
+all: $(NAME)
 
-all: $(BUILD) lib $(NAME)
-
-$(BUILD):
-	@mkdir $(BUILD)
-
-lib:
-	@make -C Libft
-
-$(NAME): $(BUILD) $(OBJ)
+$(NAME): $(A)
 	$(MAKE) -C $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./libft -lft
+	$(CC) $(CFLAGS) $(A) -o $(NAME) -L./libft -lft
 
-$(BONUS): $(BUILD) $(OBJB)
+$(BONUS): $(B)
 	$(MAKE) -C $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJB) -o $(NAME) -L./libft -lft
+	$(CC) $(CFLAGS) $(B) -o $(BONUS) -L./libft -lft
 
-bonus:
-	$(BUILD) lib $(BONUS)
+bonus: $(NAME) $(BONUS)
+
 
 fclean: clean
-	rm -rf $(NAME)
-	rm -rf $(BONUS)
-	rm -rf $(BUILD)
+	rm -rf $(NAME) $(BONUS) $(BUILD)
 
 clean:
 	$(MAKE) clean -C $(LIBFT)
-	rm -rf $(OBJ)
-	rm -rf $(OBJB)
+	rm -rf $(OBJ) $(OBJB)
 
-re: fclean all bonus
+re: fclean all
 
 .PHONY: all clean fclean re bonus

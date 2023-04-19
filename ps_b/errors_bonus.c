@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   errors_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,32 +12,6 @@
 
 #include "push_swap_bonus.h"
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-int	sort_av(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av[i] && av[i + 1] != NULL)
-	{
-		if (av[i + 1] != NULL && (ft_atoi(av[i]) > ft_atoi(av[i + 1])))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	dif(char **av)
 {
 	int	i;
@@ -45,15 +19,15 @@ int	dif(char **av)
 
 	i = 0;
 	n = 1;
-	while (av[i] && av[i + 1] != NULL)
+	while (av[i])
 	{	
-		i++;
-		while (av[n] && av[n + 1] != NULL)
+		while (av[n])
 		{
-			n++;
 			if (ft_strcmp(av[i], av[n]) == 0)
 				return (1);
+			n++;
 		}
+		i++;
 		n = i + 1;
 	}
 	return (0);

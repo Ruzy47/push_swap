@@ -12,13 +12,11 @@
 
 #include "push_swap.h"
 
-void	litfly_cont(t_stack **a, t_stack **b, int i)
+void	litfly_cont(t_stack **a, t_stack **b, int i, int n)
 {
 	int		x;
-	int		n;
 	t_stack	*aa;
 
-	n = 0;
 	while (i != 3)
 	{
 		x = 0;
@@ -26,7 +24,7 @@ void	litfly_cont(t_stack **a, t_stack **b, int i)
 		while (aa)
 		{
 			if (aa->index == n)
-				break;
+				break ;
 			x++;
 			aa = aa->next;
 		}
@@ -52,7 +50,7 @@ void	litfly_cont_a(t_stack **a)
 	x = (*a)->index;
 	y = (*a)->next->index;
 	z = (*a)->next->next->index;
-	if (x < y && x < z)
+	if (x < y && x < z && y > z)
 	{
 		rra(a);
 		sa(*a);
@@ -78,21 +76,21 @@ void	litfly(t_stack **a, t_stack **b, int i)
 		litfly_cont_a(a);
 	else
 	{
-		litfly_cont(a, b, i);
+		litfly_cont(a, b, i, 0);
 		litfly_cont_a(a);
-		while(*b)
+		while (*b)
 			pa(a, b);
 	}
 }
 
-void	listfree(t_stack *x)
+void	listfree(t_stack **x)
 {
 	t_stack	*ls_free;
 
-	while(x)
+	while (*x)
 	{
-		ls_free = x;
-		x = x->next;
-		free(ls_free);
+		ls_free = (*x)->next;
+		free(*x);
+		*x = ls_free;
 	}
 }

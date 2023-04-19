@@ -12,22 +12,11 @@
 
 #include "push_swap.h"
 
-char	**sort(char **str, char **ptr, int i, int n)
+char	**sort2(char **str, char **ptr, int n)
 {
+	int		i;
 	char	*p;
 
-	while (ptr[i] != NULL && ptr[i + 1] != NULL)
-	{
-			if (ft_atoi(ptr[i]) > ft_atoi(ptr[i + 1]))
-			{
-				p = ptr[i];
-				ptr[i] = ptr[i + 1];
-				ptr[i + 1] = p;
-				i = 0;
-			}
-			else
-				i++;
-	}
 	while (str[++n] != NULL)
 	{	
 		i = -1;
@@ -37,25 +26,31 @@ char	**sort(char **str, char **ptr, int i, int n)
 			{
 				p = ft_itoa(i);
 				str[n] = p;
+				break ;
 			}
 		}
 	}
 	return (str);
 }
 
-int	lenn(char **av, int i)
+char	**sort(char **str, char **ptr, int i)
 {
-	int	len;
+	char	*p;
 
-	len = 0;
-	if (!av)
-		return (0);
-	while (av[i])
+	while (ptr[i] != NULL && ptr[i + 1] != NULL)
 	{
-		len++;
-		i++;
+		if (ft_atoi(ptr[i]) > ft_atoi(ptr[i + 1]))
+		{
+			p = ptr[i];
+			ptr[i] = ptr[i + 1];
+			ptr[i + 1] = p;
+			i = 0;
+		}
+		else
+			i++;
 	}
-	return (len);
+	str = sort2(str, ptr, -1);
+	return (str);
 }
 
 char	**join(char **f, char **v, int i, int n)
@@ -70,7 +65,7 @@ char	**join(char **f, char **v, int i, int n)
 		return (f);
 	len1 = lenn(f, 0);
 	len2 = lenn(v, 0);
-	fv = (char**)malloc(sizeof(char*) * (len1 + len2 + 1));
+	fv = (char **)malloc(sizeof(char *) * (len1 + len2 + 1));
 	fv[len1 + len2] = NULL;
 	while (f[++i])
 		fv[i] = f[i];
@@ -87,7 +82,6 @@ char	**plit(char **av, int i)
 	char	**v;
 
 	v = NULL;
-
 	while (av[i])
 	{
 		f = v;
@@ -106,8 +100,8 @@ char	**pars(char **v, int i)
 	int		len;
 
 	len = lenn(v, 0);
-	str = (char**)malloc(sizeof(char*) * (len + 1));
-	ptr = (char**)malloc(sizeof(char*) * (len + 1));
+	str = (char **)malloc(sizeof(char *) * (len + 1));
+	ptr = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!str || !ptr)
 		return (NULL);
 	while (v && v[i] != 0)
@@ -118,7 +112,7 @@ char	**pars(char **v, int i)
 	}
 	ptr[i] = NULL;
 	str[i] = NULL;
-	str = sort(str, ptr, 0, -1);
+	str = sort(str, ptr, 0);
 	i = 0;
 	free(ptr);
 	return (str);

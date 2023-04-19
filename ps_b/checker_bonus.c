@@ -26,6 +26,12 @@ int	sort_list(t_stack *a)
 	return (0);
 }
 
+void	exit2(void)
+{
+	write(2, "Error\n", 6);
+	exit(0);
+}
+
 void	move(char *str, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
@@ -51,7 +57,7 @@ void	move(char *str, t_stack **a, t_stack **b)
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		rrr(*a, *b);
 	else
-		write(2, "Error\n", 6);
+		exit2();
 }
 
 void	checker(t_stack **a, t_stack **b)

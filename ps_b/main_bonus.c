@@ -84,7 +84,6 @@ int	main(int ac, char **av)
 		return (0);
 	if (errors(v) != 0)
 		return (write (2, "Error\n", 6));
-	printf("aaa\n");
 	fill(v, &a);
 	checker(&a, &b);
 	listfree(a);

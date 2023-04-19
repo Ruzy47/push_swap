@@ -64,6 +64,10 @@ void	fill(char **v, t_stack **a)
 	num = number(v);
 	while (str[++i])
 		add_back(a, new(ft_atoi(str[i]), ft_atoi(num[i])));
+	i = -1;
+	while (str && str[++i])
+		free(str[i]);
+	free(str);
 	free(num);
 }
 
@@ -76,10 +80,11 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	v = plit(av, 1);
-	if (ac == 1)
+	if (ac == 1 || !v[0])
 		return (0);
 	if (errors(v) != 0)
 		return (write (2, "Error\n", 6));
+	printf("aaa\n");
 	fill(v, &a);
 	checker(&a, &b);
 	listfree(a);

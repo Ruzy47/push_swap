@@ -90,5 +90,5 @@ int	main(int ac, char **av)
 		return (write (2, "Error\n", 6));
 	fill(v, &a, &b);
 	listfree(&a);
-	sleep(100);
+	return (0);
 }

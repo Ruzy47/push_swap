@@ -50,7 +50,8 @@ void	move(char *str, t_stack **a, t_stack **b)
 		rrb(b);
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		rrr(*a, *b);
-		system ("leaks checker");
+	else
+		write(2, "Error\n", 6);
 }
 
 void	checker(t_stack **a, t_stack **b)
@@ -67,7 +68,6 @@ void	checker(t_stack **a, t_stack **b)
 			break ;
 		free(str);
 	}
-	system ("leaks checker");
 	if (!*a || *b || sort_list(*a) != 0)
 		write (2, "KO\n", 3);
 	else

@@ -6,7 +6,7 @@
 /*   By: rugrigor <rugrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:00 by rugrigor          #+#    #+#             */
-/*   Updated: 2023/04/20 17:04:29 by rugrigor         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:48:10 by rugrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	dif(char **av)
 			j = 0;
 			while (av[n][j] && av[n][j] == '0')
 				j++;
+			if (av[i][x] == '-' && av[i][x + 1] == '0' && av[n][j] == 0)
+				return (1);
 			if (ft_strcmp(&av[i][x], &av[n][j]) == 0)
 				return (1);
 			n++;

@@ -57,7 +57,8 @@ int	dif(char **av)
 			j = 0;
 			while (av[n][j] && av[n][j] == '0')
 				j++;
-			if (av[i][x] == '-' && av[i][x + 1] == '0' && av[n][j] == 0)
+			if ((av[i][x] == '-' && av[i][x + 1] == '0' && av[n][j] == 0)
+				|| (av[n][j] == '-' && av[n][j + 1] == '0' && av[i][x] == 0))
 				return (1);
 			if (ft_strcmp(&av[i][x], &av[n][j]) == 0)
 				return (1);

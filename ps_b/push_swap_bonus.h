@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rugrigor <rugrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 11:28:23 by rugrigor          #+#    #+#             */
-/*   Updated: 2023/04/07 20:18:36 by rugrigor         ###   ########.fr       */
+/*   Updated: 2023/04/20 14:43:18 by rugrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	checker(t_stack **a, t_stack **b);
 char	**number(char **v);
 int		ft_strcmp(char *s1, char *s2);
 int		sort_av(char **av);
-int		errors(char **av);
+int		errors(char **av, int i, int n);
 char	**pars(char **v, int i);
 int		lenn(char **av, int i);
 char	**plit(char **av, int i);

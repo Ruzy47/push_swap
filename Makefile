@@ -47,8 +47,7 @@ $(BONUS): $(B)
 	$(MAKE) -C $(LIBFT)
 	$(CC) $(CFLAGS) $(B) -o $(BONUS) -L./libft -lft
 
-bonus: $(NAME) $(BONUS)
-
+bonus: $(BONUS)
 
 fclean: clean
 	rm -rf $(NAME) $(BONUS) $(BUILD)

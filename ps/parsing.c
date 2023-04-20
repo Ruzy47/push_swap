@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rugrigor <rugrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:28:00 by rugrigor          #+#    #+#             */
-/*   Updated: 2023/03/29 13:28:03 by rugrigor         ###   ########.fr       */
+/*   Updated: 2023/04/20 14:38:27 by rugrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**sort2(char **str, char **ptr, int n)
 		i = -1;
 		while (ptr[++i] != NULL)
 		{
-			if ((ft_atoi(str[n]) == ft_atoi(ptr[i])))
+			if ((ft_atol(str[n]) == ft_atol(ptr[i])))
 			{
 				p = ft_itoa(i);
 				str[n] = p;
@@ -39,7 +39,7 @@ char	**sort(char **str, char **ptr, int i)
 
 	while (ptr[i] != NULL && ptr[i + 1] != NULL)
 	{
-		if (ft_atoi(ptr[i]) > ft_atoi(ptr[i + 1]))
+		if (ft_atol(ptr[i]) > ft_atol(ptr[i + 1]))
 		{
 			p = ptr[i];
 			ptr[i] = ptr[i + 1];

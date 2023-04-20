@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rugrigor <rugrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:00 by rugrigor          #+#    #+#             */
-/*   Updated: 2023/03/29 13:28:03 by rugrigor         ###   ########.fr       */
+/*   Updated: 2023/04/20 14:43:06 by rugrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	fill(char **v, t_stack **a)
 	str = pars(v, 0);
 	num = number(v);
 	while (str[++i])
-		add_back(a, new(ft_atoi(str[i]), ft_atoi(num[i])));
+		add_back(a, new(ft_atol(str[i]), ft_atol(num[i])));
 	i = -1;
 	while (str && str[++i])
 		free(str[i]);
@@ -82,7 +82,7 @@ int	main(int ac, char **av)
 	v = plit(av, 1);
 	if (ac == 1 || !v[0])
 		return (0);
-	if (errors(v) != 0)
+	if (errors(v, -1, -1) != 0)
 		return (write (2, "Error\n", 6));
 	fill(v, &a);
 	checker(&a, &b);

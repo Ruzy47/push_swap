@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rugrigor <rugrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:00 by rugrigor          #+#    #+#             */
-/*   Updated: 2023/03/29 13:28:03 by rugrigor         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:40:36 by rugrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	fill(char **v, t_stack **a, t_stack **b)
 	str = pars(v, 0);
 	num = number(v);
 	while (str[++i])
-		add_back(a, new(ft_atoi(str[i]), ft_atoi(num[i])));
+		add_back(a, new(ft_atol(str[i]), ft_atol(num[i])));
 	if (i <= 12)
 		litfly(a, b, i);
 	else
@@ -84,10 +84,12 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	v = plit(av, 1);
-	if (ac == 1 || sort_av(v) != 0)
+	if (ac == 1)
 		return (0);
-	if (errors(v) != 0)
+	if (errors(v, -1, -1) != 0)
 		return (write (2, "Error\n", 6));
+	if (sort_av(v) != 0)
+		return (0);
 	fill(v, &a, &b);
 	listfree(&a);
 	return (0);
